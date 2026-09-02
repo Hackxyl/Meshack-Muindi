@@ -16,3 +16,6 @@ Email: [hackxyl58@gmail.com](mailto:hackxyl58@gmail.com)
 
 LinkedIn: [linkedin.com/in/hackxyl-230b922aa](linkedin.com/in/hackxyl-230b922aa)
 
+## License
+
+This portfolio is a personal project by Meshack Muindi.
