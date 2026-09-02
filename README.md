@@ -1,4 +1,4 @@
-# Meshack — Developer Portfolio
+# Meshack Muindi — Developer Portfolio
 
 Personal portfolio showcasing my projects, skills, experience, and work as a software developer.
 
