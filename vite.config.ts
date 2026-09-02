@@ -3,5 +3,5 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/mesh-portfolio/',
+  base: '/Meshack-Muindi/',
 })
