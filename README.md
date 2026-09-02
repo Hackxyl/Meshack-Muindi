@@ -14,7 +14,5 @@ Personal portfolio showcasing my projects, skills, experience, and work as a sof
 
 Email: [hackxyl58@gmail.com](mailto:hackxyl58@gmail.com)
 
-GitHub: github.com/Hackxyl
-
 LinkedIn: linkedin.com/in/hackxyl-230b922aa
 
