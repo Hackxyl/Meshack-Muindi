@@ -69,10 +69,37 @@
 }
 
 .logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo-text strong {
   color: var(--text-h);
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
+
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.logo-text small {
+  color: var(--text-dim);
+
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.logo:hover .logo-text strong {
+  color: var(--accent-light);
+}
+
+.logo:hover .logo-text small {
+  color: var(--text);
 }
 
 .logo-text span {

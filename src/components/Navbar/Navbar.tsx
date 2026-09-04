@@ -24,22 +24,23 @@ function Navbar() {
       <div className="container navbar-inner">
 
         {/* Logo */}
-        <a
-          href="#home"
-          className="logo"
-          onClick={closeMenu}
-          aria-label="Meshack home"
-        >
-          <img
-            src={meshLogo}
-            alt="Mesh"
-            className="logo-image"
-          />
-        <span className="logo-text">
-          
-        </span>
-        MESHACK
-        </a>
+       <a
+  href="#home"
+  className="logo"
+  onClick={closeMenu}
+  aria-label="Meshack home"
+>
+  <img
+    src={meshLogo}
+    alt="Meshack"
+    className="logo-image"
+  />
+
+  <span className="logo-text">
+    <strong>MESHACK</strong>
+    <small>FULL STACK DEVELOPER</small>
+  </span>
+</a>
 
         {/* Navigation */}
         <nav

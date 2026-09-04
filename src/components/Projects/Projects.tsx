@@ -1,6 +1,5 @@
 import {
   ArrowUpRight,
-  ExternalLink,
 } from "lucide-react";
 
 import "./Projects.css";
@@ -22,6 +21,7 @@ const projects = [
     live: "https://mimea-salama.vercel.app",
     github: "https://github.com/Hackxyl",
   },
+
   {
     number: "02",
     category: "FULL-STACK · MANAGEMENT SYSTEM",
@@ -35,11 +35,9 @@ const projects = [
       "PostgreSQL",
     ],
     featured: true,
-    live: "http://kiangini-ict-centre.onrender.com",  // 'visit live site'
+    live: "https://kiangini-ict-centre.onrender.com",
     github: "https://github.com/Hackxyl",
   },
-
-  
 ];
 
 function GithubMark() {
@@ -66,11 +64,15 @@ function Projects() {
   );
 
   return (
-    <section className="projects section" id="projects">
+    <section
+      className="projects section"
+      id="projects"
+    >
       <div className="container">
 
         {/* Section Header */}
         <div className="projects-header">
+
           <div>
             <p className="section-label">
               MY PROJECTS
@@ -88,16 +90,22 @@ function Projects() {
             products I've designed and developed to solve
             practical problems.
           </p>
+
         </div>
 
         {/* Featured Projects */}
         <div className="featured-projects">
+
           {featuredProjects.map((project) => (
+
             <article
               className="project-card project-card-featured"
               key={project.title}
             >
+
+              {/* Project Header */}
               <div className="project-top">
+
                 <span className="project-number">
                   {project.number}
                 </span>
@@ -105,67 +113,97 @@ function Projects() {
                 <span className="project-category">
                   {project.category}
                 </span>
+
               </div>
 
+              {/* Project Content */}
               <div className="project-body">
+
                 <div className="project-info">
-                  <h3>{project.title}</h3>
 
-                  <p>{project.description}</p>
+                  <h3>
+                    {project.title}
+                  </h3>
 
+                  <p>
+                    {project.description}
+                  </p>
+
+                  {/* Technologies */}
                   <div className="project-tech">
-                    {project.technologies.map((technology) => (
-                      <span key={technology}>
-                        {technology}
-                      </span>
-                    ))}
+
+                    {project.technologies.map(
+                      (technology) => (
+                        <span key={technology}>
+                          {technology}
+                        </span>
+                      )
+                    )}
+
                   </div>
+
                 </div>
 
+                {/* Project Actions */}
                 <div className="project-actions">
 
+                  {/* Live Website */}
                   {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Visit ${project.title}`}
+                      className="project-live-link"
+                      aria-label={`Visit ${project.title} live site`}
                     >
-                      <ExternalLink size={17} />
+                      <span className="live-dot" />
+
+                      <span>
+                        VISIT LIVE
+                      </span>
+
+                      <ArrowUpRight size={14} />
                     </a>
                   )}
 
                   
 
-                  <a
-                    href="#contact"
-                    aria-label={`Learn more about ${project.title}`}
-                  >
-                    <ArrowUpRight size={17} />
-                  </a>
-
                 </div>
+
               </div>
+
             </article>
+
           ))}
+
         </div>
 
         {/* Other Projects */}
         {otherProjects.length > 0 && (
+
           <div className="other-projects">
 
             <div className="other-projects-heading">
-              <span>MORE WORK</span>
+
+              <span>
+                MORE WORK
+              </span>
+
               <div />
+
             </div>
 
             <div className="other-projects-grid">
+
               {otherProjects.map((project) => (
+
                 <article
                   className="project-card project-card-small"
                   key={project.title}
                 >
+
                   <div className="project-top">
+
                     <span className="project-number">
                       {project.number}
                     </span>
@@ -173,21 +211,32 @@ function Projects() {
                     <span className="project-category">
                       {project.category}
                     </span>
+
                   </div>
 
-                  <h3>{project.title}</h3>
+                  <h3>
+                    {project.title}
+                  </h3>
 
-                  <p>{project.description}</p>
+                  <p>
+                    {project.description}
+                  </p>
 
                   <div className="project-bottom">
+
                     <div className="project-tech">
-                      {project.technologies.map((technology) => (
-                        <span key={technology}>
-                          {technology}
-                        </span>
-                      ))}
+
+                      {project.technologies.map(
+                        (technology) => (
+                          <span key={technology}>
+                            {technology}
+                          </span>
+                        )
+                      )}
+
                     </div>
 
+                    {/* GitHub */}
                     <a
                       href={project.github}
                       target="_blank"
@@ -196,15 +245,22 @@ function Projects() {
                     >
                       <GithubMark />
                     </a>
+
                   </div>
+
                 </article>
+
               ))}
+
             </div>
+
           </div>
+
         )}
 
         {/* Portfolio CTA */}
         <div className="projects-cta">
+
           <p>
             Interested in how I build my projects?
           </p>
@@ -217,6 +273,7 @@ function Projects() {
             Explore GitHub
             <ArrowUpRight size={17} />
           </a>
+
         </div>
 
       </div>

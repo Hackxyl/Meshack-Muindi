@@ -1,6 +1,4 @@
 import {
-  ArrowUpRight,
-  Mail,
   ArrowUp,
 } from "lucide-react";
 
@@ -14,85 +12,53 @@ function Footer() {
     <footer className="footer">
       <div className="container">
 
-        {/* Footer Top */}
-        <div className="footer-top">
+        {/* Footer Identity */}
+        <div className="footer-main">
 
           <div className="footer-brand">
-            <img src={meshLogo} alt="Meshack Logo" className="logo-image" />
-            <a href="#home" className="footer-logo">
-              MESHACK
-            </a>
+            <img
+              src={meshLogo}
+              alt="Meshack"
+              className="logo-image"
+            />
+
+            <div className="footer-brand-content">
+              <a href="#home" className="footer-logo">
+                MESHACK MUINDI
+              </a>
+
+              <p>
+                Full-stack developer
+              </p>
+            </div>
+          </div>
+
+          <div className="footer-statement">
+            <span className="footer-command">
+              &lt;/&gt;
+            </span>
 
             <p>
-              Software developer and web engineer building
-              modern digital experiences, intelligent systems,
-              and practical solutions.
+              Building digital experiences that work.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div className="footer-column">
-            <span className="footer-label">
-              NAVIGATION
-            </span>
+        </div>
 
-            <nav className="footer-links">
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#experience">Experience</a>
-              <a href="#contact">Contact</a>
-            </nav>
-          </div>
+        {/* Technical Divider */}
+        <div className="footer-divider">
+          <span>END OF PAGE</span>
 
-          {/* Connect */}
-          <div className="footer-column">
-            <span className="footer-label">
-              CONNECT
-            </span>
+          <span className="footer-line" />
 
-            <nav className="footer-links">
-              <a
-                href="https://github.com/Hackxyl"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-                <ArrowUpRight size={14} />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/hackxyl-230b922aa"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-                <ArrowUpRight size={14} />
-              </a>
-
-              <a
-                href="Whatsapp://send?phone=+254114797246"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-                <ArrowUpRight size={14} />
-              </a>
-
-              <a href="#contact">
-                Email
-                <Mail size={14} />
-              </a>
-            </nav>
-          </div>
-
+          <span>DEVELOPED AND DESIGNED BY <a href="#about">MESHACK</a></span>
         </div>
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
 
           <p>
-            © {currentYear} MESHACK. All rights reserved.
+            &copy; {currentYear} MESHACK. All rights reserved.
           </p>
 
           <div className="footer-status">

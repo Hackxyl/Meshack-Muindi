@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 
 import "./Hero.css";
+import meshh from "../../assets/meshh.jpeg";
 
 function Hero() {
   return (
@@ -29,7 +30,7 @@ function Hero() {
 
           {/* Eyebrow */}
           <p className="hero-eyebrow">
-            SOFTWARE DEVELOPER · WEB ENGINEER
+            Hi, I'm Meshack Muindi
           </p>
 
           {/* Main Heading */}
@@ -41,7 +42,7 @@ function Hero() {
 
           {/* Description */}
           <p className="hero-description">
-            I'm Meshack, a software developer focused on building
+            I'm a software developer focused on building
             modern web applications, intelligent systems, and
             scalable digital solutions that solve real-world
             problems.
@@ -92,36 +93,33 @@ function Hero() {
 
         </div>
 
-        {/* RIGHT SIDE — PROFILE */}
-        <div className="hero-profile">
+{/* RIGHT SIDE — PROFILE */}
+<div className="hero-profile">
 
-          <div className="hero-profile-frame">
+  <div className="hero-profile-frame">
 
-            {/* REPLACE THIS WITH YOUR IMAGE */}
-            <img
-              src="YOUR_IMAGE_LINK_HERE"
-              alt="Meshack Muindi"
-              className="hero-profile-image"
-            />
+    <img
+      src={meshh}
+      alt="Meshack"
+      className="hero-profile-image"
+    />
 
-            <div className="hero-profile-overlay" />
+    <div className="hero-profile-overlay" />
 
-            <div className="hero-profile-label">
-              <span className="profile-label-dot" />
-              MESHACK.DEV
-            </div>
+    <div className="hero-profile-label">
+      <span className="profile-label-dot" />
+      AMENITENDEA MEMA HUYU YESU
+    </div>
 
-          </div>
+  </div>
 
-          {/* Small technical information */}
-          <div className="hero-profile-info">
-            <span>01</span>
-            <p>
-              BUILDING · DEPLOYING · INNOVATING
-            </p>
-          </div>
+  <div className="hero-profile-info">
+    <p>
+      BUILDING · DEPLOYING · INNOVATING
+    </p>
+  </div>
 
-        </div>
+</div>
 
       </div>
 
