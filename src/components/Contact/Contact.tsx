@@ -53,6 +53,17 @@ function Contact() {
               </div>
 
               <div>
+                <span>Phone</span>
+                <a href="tel:+254114797246">+254 114 797 246</a>
+              </div>
+            </div>
+
+            <div className="contact-item">
+              <div className="contact-icon">
+                <MapPin size={19} />
+              </div>
+
+              <div>
                 <span>Location</span>
                 <p>Voi, Kenya</p>
               </div>
