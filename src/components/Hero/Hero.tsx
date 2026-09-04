@@ -68,28 +68,6 @@ function Hero() {
 
           </div>
 
-          {/* Social Links */}
-          <div className="hero-socials">
-
-            <a
-              href="https://github.com/Hackxyl"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              GH
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/hackxyl-230b922aa"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              IN
-            </a>
-
-          </div>
 
         </div>
 
