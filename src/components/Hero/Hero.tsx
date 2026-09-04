@@ -85,7 +85,6 @@ function Hero() {
     <div className="hero-profile-overlay" />
 
     <div className="hero-profile-label">
-      <span className="profile-label-dot" />
       AMENITENDEA MEMA HUYU YESU
     </div>
 
