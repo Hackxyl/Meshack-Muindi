@@ -16,75 +16,112 @@ function Hero() {
       <div className="hero-glow hero-glow-one" />
       <div className="hero-glow hero-glow-two" />
 
-      {/* Hero Content */}
       <div className="container hero-content">
 
-        {/* Availability Status */}
-        <div className="hero-status">
-          <span className="status-dot" />
-          <span>Available for opportunities</span>
+        {/* LEFT SIDE */}
+        <div className="hero-main">
+
+          {/* Availability Status */}
+          <div className="hero-status">
+            <span className="status-dot" />
+            <span>Available for opportunities</span>
+          </div>
+
+          {/* Eyebrow */}
+          <p className="hero-eyebrow">
+            SOFTWARE DEVELOPER · WEB ENGINEER
+          </p>
+
+          {/* Main Heading */}
+          <h1>
+            I build digital
+            <br />
+            <span>experiences that work</span>
+          </h1>
+
+          {/* Description */}
+          <p className="hero-description">
+            I'm Meshack, a software developer focused on building
+            modern web applications, intelligent systems, and
+            scalable digital solutions that solve real-world
+            problems.
+          </p>
+
+          {/* Call To Actions */}
+          <div className="hero-actions">
+
+            <a
+              href="#projects"
+              className="button button-primary"
+            >
+              View My Work
+              <ArrowUpRight size={18} />
+            </a>
+
+            <a
+              href="#contact"
+              className="button button-secondary"
+            >
+              Let's Connect
+            </a>
+
+          </div>
+
+          {/* Social Links */}
+          <div className="hero-socials">
+
+            <a
+              href="https://github.com/Hackxyl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              GH
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/hackxyl-230b922aa"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              IN
+            </a>
+
+          </div>
+
         </div>
 
-        {/* Eyebrow */}
-        <p className="hero-eyebrow">
-          SOFTWARE DEVELOPER · WEB ENGINEER
-        </p>
+        {/* RIGHT SIDE — PROFILE */}
+        <div className="hero-profile">
 
-        {/* Main Heading */}
-        <h1>
-          I build digital
-          <br />
-          <span>experiences that work</span>
-        </h1>
+          <div className="hero-profile-frame">
 
-        {/* Description */}
-        <p className="hero-description">
-          I'm Meshack, a software developer focused on building
-          modern web applications, intelligent systems, and
-          scalable digital solutions that solve real-world
-          problems.
-        </p>
+            {/* REPLACE THIS WITH YOUR IMAGE */}
+            <img
+              src="YOUR_IMAGE_LINK_HERE"
+              alt="Meshack Muindi"
+              className="hero-profile-image"
+            />
 
-        {/* Call To Actions */}
-        <div className="hero-actions">
+            <div className="hero-profile-overlay" />
 
-          <a
-            href="#projects"
-            className="button button-primary"
-          >
-            View My Work
-            <ArrowUpRight size={18} />
-          </a>
+            <div className="hero-profile-label">
+              <span className="profile-label-dot" />
+              MESHACK.DEV
+            </div>
 
-          <a
-            href="#contact"
-            className="button button-secondary"
-          >
-            Let's Connect
-          </a>
+          </div>
+
+          {/* Small technical information */}
+          <div className="hero-profile-info">
+            <span>01</span>
+            <p>
+              BUILDING · DEPLOYING · INNOVATING
+            </p>
+          </div>
 
         </div>
-
-        {/* Social Links */}
-      <div className="hero-socials">
-  <a
-    href="https://github.com/Hackxyl"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-  >
-    GH
-  </a>
-
-  <a
-    href="https://www.linkedin.com/in/hackxyl-230b922aa"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-  >
-    IN
-  </a>
-</div>
 
       </div>
 
