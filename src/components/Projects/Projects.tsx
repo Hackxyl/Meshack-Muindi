@@ -35,7 +35,7 @@ const projects = [
       "PostgreSQL",
     ],
     featured: true,
-    live: "https://kiangini-ict-centre.onrender.com",
+    live: "https://kiangini-ict-centre.hackxyl58.workers.dev/",
     github: "https://github.com/Hackxyl",
   },
 ];
