@@ -200,9 +200,9 @@ function Contact() {
               {status === "success" ? (
                 <div className="contact-form-success" role="status">
                   <CheckCircle2 size={34} />
-                  <h4>Message submitted!</h4>
+                  <h4>Idea submitted successfully!</h4>
                   <p>
-                    Thanks for reaching out. I usually respond within 2-4 hours. 
+                    Thanks for reaching out.I'll get back to you soon after reviewing it.
                     
                   </p>
                   <button
@@ -210,7 +210,7 @@ function Contact() {
                     className="contact-button"
                     onClick={() => setStatus("idle")}
                   >
-                    Any other message?
+                    Have another idea?
                     <ArrowUpRight size={17} />
                   </button>
                 </div>
