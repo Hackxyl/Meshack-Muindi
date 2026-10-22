@@ -202,15 +202,15 @@ function Contact() {
                   <CheckCircle2 size={34} />
                   <h4>Message submitted!</h4>
                   <p>
-                    Thanks for reaching out. Your message was accepted by
-                    the form service.
+                    Thanks for reaching out. I usually respond within 2-4 hours. 
+                    
                   </p>
                   <button
                     type="button"
                     className="contact-button"
                     onClick={() => setStatus("idle")}
                   >
-                    Send another message
+                    Any other message?
                     <ArrowUpRight size={17} />
                   </button>
                 </div>
