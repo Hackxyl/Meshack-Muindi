@@ -248,7 +248,7 @@ function Projects() {
 
   
 
-  <p>Have a project in mind? Let's make it happen.</p>
+  <p>Have a project in mind?  Let's make it happen.</p>
 
   <a href="#contact" className="projects-cta-button">
     Tell me your idea
