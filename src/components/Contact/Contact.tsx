@@ -76,7 +76,7 @@ function Contact() {
 
       if (!response.ok || result.success !== "true") {
         throw new Error(
-          "Your message could not be sent. Please try again or email me directly."
+          "Your idea could not be sent. Please try again or email me directly."
         );
       }
 
