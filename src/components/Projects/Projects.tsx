@@ -240,17 +240,23 @@ function Projects() {
           </div>
         </div>
 
-        <div className="projects-cta">
-          <div className="projects-cta-copy">
-            <span>HAVE AN IDEA?</span>
-            <p>Let's build something meaningful together.</p>
-          </div>
+       
+{/* Portfolio CTA */}
 
-          <a href="#contact">
-            Tell me your project idea
-            <ArrowUpRight size={17} />
-          </a>
-        </div>
+<div className="projects-cta">
+  <span className="projects-cta-label">HAVE AN IDEA?</span>
+
+  
+
+  <p>Have a project in mind? Let's make it happen.</p>
+
+  <a href="#contact" className="projects-cta-button">
+    Start a conversation
+    <ArrowUpRight size={17} />
+  </a>
+</div>
+
+
       </div>
     </section>
   );
