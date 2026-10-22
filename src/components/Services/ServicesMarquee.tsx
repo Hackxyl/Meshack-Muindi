@@ -1,4 +1,3 @@
-
 import "./ServicesMarquee.css";
 
 const services = [
@@ -16,25 +15,28 @@ const services = [
 
 export default function ServicesMarquee() {
   return (
-    <section
-      className="services-marquee"
-      aria-label="Services and capabilities"
-    >
-      <div className="services-marquee-track">
-        {[0, 1].map((group) => (
-          <div
-            className="services-marquee-group"
-            key={group}
-            aria-hidden={group === 1 ? "true" : undefined}
-          >
-            {services.map((service) => (
-              <span className="service-marquee-item" key={service}>
-                <span className="service-marquee-dot" />
-                {service}
-              </span>
-            ))}
-          </div>
-        ))}
+    <section className="services-section">
+      <div className="services-heading">
+        <span className="services-tag">WHAT I CAN DO</span>
+      </div>
+
+      <div className="services-marquee">
+        <div className="services-marquee-track">
+          {[0, 1].map((group) => (
+            <div
+              className="services-marquee-group"
+              key={group}
+              aria-hidden={group === 1}
+            >
+              {services.map((service) => (
+                <div className="service-marquee-item" key={service}>
+                  <span className="service-marquee-dot" />
+                  <span>{service}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

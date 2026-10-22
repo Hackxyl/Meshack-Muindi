@@ -1,11 +1,51 @@
+/* SERVICES SECTION */
 
-/* SERVICES MARQUEE */
+.services-section {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 18px 0 28px;
+  box-sizing: border-box;
+}
+
+.services-heading {
+  width: min(1126px, calc(100% - 48px));
+  margin: 0 auto 20px;
+  box-sizing: border-box;
+}
+
+.services-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #a78bfa;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.services-tag::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #8b5cf6;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.45);
+}
+
+/* MARQUEE */
 
 .services-marquee {
   position: relative;
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
   padding: 23px 0;
+  box-sizing: border-box;
   background: #0d0f14;
   border-top: 1px solid #242731;
   border-bottom: 1px solid #242731;
@@ -28,6 +68,7 @@
 .services-marquee-track {
   display: flex;
   width: max-content;
+  max-width: none;
   animation: services-marquee-scroll 38s linear infinite;
   will-change: transform;
 }
@@ -39,19 +80,22 @@
 .services-marquee-group {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   gap: 38px;
   padding-right: 38px;
+  white-space: nowrap;
 }
 
 .service-marquee-item {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: 11px;
   color: #b5bdca;
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: -0.01em;
+  line-height: 1.5;
   white-space: nowrap;
   transition: color 0.2s ease;
 }
@@ -63,11 +107,13 @@
 .service-marquee-dot {
   width: 6px;
   height: 6px;
-  flex-shrink: 0;
-  background: #8b5cf6;
+  flex: 0 0 6px;
   border-radius: 50%;
+  background: #8b5cf6;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.35);
 }
+
+/* SEAMLESS LOOP */
 
 @keyframes services-marquee-scroll {
   from {
@@ -79,25 +125,142 @@
   }
 }
 
-/* MOBILE */
+/* LARGE SCREENS */
 
-@media (max-width: 640px) {
+@media (min-width: 1440px) {
+  .services-heading {
+    width: min(1126px, calc(100% - 64px));
+  }
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .services-section {
+    padding: 16px 0 24px;
+  }
+
+  .services-heading {
+    width: calc(100% - 40px);
+    margin-bottom: 17px;
+  }
+
   .services-marquee {
-    padding: 19px 0;
+    padding: 21px 0;
   }
 
   .services-marquee-group {
-    gap: 26px;
-    padding-right: 26px;
+    gap: 30px;
+    padding-right: 30px;
   }
 
   .service-marquee-item {
     gap: 9px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
   .services-marquee-track {
-    animation-duration: 32s;
+    animation-duration: 34s;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .services-section {
+    padding: 14px 0 20px;
+  }
+
+  .services-heading {
+    width: calc(100% - 32px);
+    margin-bottom: 14px;
+  }
+
+  .services-tag {
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+  }
+
+  .services-tag::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .services-marquee {
+    padding: 18px 0;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 4%,
+      #000 96%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 4%,
+      #000 96%,
+      transparent
+    );
+  }
+
+  .services-marquee-group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  .service-marquee-item {
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+
+  .service-marquee-dot {
+    width: 5px;
+    height: 5px;
+    flex-basis: 5px;
+  }
+
+  .services-marquee-track {
+    animation-duration: 30s;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+  .services-heading {
+    width: calc(100% - 24px);
+  }
+
+  .services-tag {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .services-marquee {
+    padding: 16px 0;
+  }
+
+  .services-marquee-group {
+    gap: 20px;
+    padding-right: 20px;
+  }
+
+  .service-marquee-item {
+    font-size: 0.7rem;
+  }
+
+  .services-marquee-track {
+    animation-duration: 26s;
+  }
+}
+
+/* TOUCH DEVICES */
+
+@media (hover: none) {
+  .services-marquee:hover .services-marquee-track {
+    animation-play-state: running;
   }
 }
 
