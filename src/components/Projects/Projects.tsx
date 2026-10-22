@@ -251,7 +251,7 @@ function Projects() {
   <p>Have a project in mind? Let's make it happen.</p>
 
   <a href="#contact" className="projects-cta-button">
-    Start a conversation
+    Tell me your idea
     <ArrowUpRight size={17} />
   </a>
 </div>
