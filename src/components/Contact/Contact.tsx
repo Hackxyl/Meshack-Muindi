@@ -247,40 +247,64 @@ function Contact() {
                     </div>
                   </div>
 
-                  <div className="contact-field">
-                    <label htmlFor="contact-project">
-                      What can I help you with?
-                    </label>
-                    <select
-                      id="contact-project"
-                      name="projectType"
-                      defaultValue=""
-                      required
-                    >
-                      <option value="" disabled>
-                        Select a project type
-                      </option>
-                      <option value="Website development">
-                        Website development
-                      </option>
-                      <option value="Web application">
-                        Web application
-                      </option>
-                      <option value="UI/UX and redesign">
-                        UI/UX and redesign
-                      </option>
-                      <option value="Technical support">
-                        Technical support
-                      </option>
-                      <option value="Freelance collaboration">
-                        Freelance collaboration
-                      </option>
-                      <option value="Job opportunity">
-                        Job opportunity
-                      </option>
-                      <option value="Other">Something else</option>
-                    </select>
-                  </div>
+                  
+<div className="contact-field">
+  <label htmlFor="contact-project">
+    What can I help you with?
+  </label>
+
+  <select
+    id="contact-project"
+    name="projectType"
+    defaultValue=""
+    required
+  >
+    <option value="" disabled>
+      Select a service or opportunity
+    </option>
+
+    <option value="Website development">
+      Website Development
+    </option>
+
+    <option value="Full-stack web application">
+      Full-Stack Web Application
+    </option>
+
+    <option value="Backend and API development">
+      Backend Systems & API Development
+    </option>
+
+    <option value="Database design and development">
+      Database Design & Development
+    </option>
+
+    <option value="Data analysis">
+      Data Analysis
+    </option>
+
+    <option value="UI/UX design and website redesign">
+      UI/UX Design & Website Redesign
+    </option>
+
+    <option value="Technical support and troubleshooting">
+      IT Support & Technical Troubleshooting
+    </option>
+
+    <option value="Freelance collaboration">
+      Freelance Collaboration
+    </option>
+
+    <option value="Job or internship opportunity">
+      Job or Internship Opportunity
+    </option>
+
+    <option value="Other">
+      Something Else
+    </option>
+  </select>
+</div>
+
 
                   <div className="contact-field">
                     <label htmlFor="contact-message">Your idea</label>
