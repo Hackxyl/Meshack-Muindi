@@ -283,7 +283,7 @@ function Contact() {
                   </div>
 
                   <div className="contact-field">
-                    <label htmlFor="contact-message">Your message</label>
+                    <label htmlFor="contact-message">Your idea</label>
                     <textarea
                       id="contact-message"
                       name="message"
@@ -294,7 +294,7 @@ function Contact() {
                       required
                     />
                     <span className="contact-field-hint">
-                      A short description is a great place to start.
+                      A brief and clear description is a great place to start.
                     </span>
                   </div>
 
@@ -326,11 +326,11 @@ function Contact() {
                     {status === "sending" ? (
                       <>
                         <LoaderCircle className="contact-spinner" size={18} />
-                        Sending message...
+                        Turning your idea into a reality ...
                       </>
                     ) : (
                       <>
-                        Send my message
+                        Turn your idea into a reality
                         <Send size={17} />
                       </>
                     )}
