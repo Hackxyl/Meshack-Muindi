@@ -1,173 +1,388 @@
+
+import { useState, type FormEvent } from "react";
 import {
   ArrowUpRight,
   Mail,
   MapPin,
+  Phone,
+  MessageCircle,
+  BriefcaseBusiness,
+  GitBranch,
+  ExternalLink,
+  Send,
+  CheckCircle2,
+  LoaderCircle,
 } from "lucide-react";
 
 import "./Contact.css";
 
+const EMAIL = "hackxyl58@gmail.com";
+const PHONE = "+254114797246";
+
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 function Contact() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (status === "sending") return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    // Basic spam trap: real visitors should leave this field empty.
+    if (String(formData.get("_honey") || "").trim()) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const projectType = String(formData.get("projectType") || "");
+    const message = String(formData.get("message") || "").trim();
+
+    if (!name || !email || !projectType || !message) {
+      setErrorMessage("Please complete all required fields.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          projectType,
+          message,
+          _subject: `Portfolio enquiry: ${projectType}`,
+          _template: "table",
+          _honey: "",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || result.success !== "true") {
+        throw new Error(
+          "Your message could not be sent. Please try again or email me directly."
+        );
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    }
+  }
+
   return (
     <section className="contact section" id="contact">
       <div className="container">
-
-        {/* Header */}
         <div className="contact-header">
-          <p className="section-label">CONTACT</p>
+          <p className="section-label">GET IN TOUCH</p>
 
           <h2>
-            Let's build
+            Let's talk about
             <br />
-            <span>something.</span>
+            <span>what's next.</span>
           </h2>
 
           <p className="contact-intro">
-            Have an idea, project, opportunity, or problem you'd
-            like to solve? I'm always open to meaningful
-            conversations and interesting technical challenges.
+            Have a project, an idea, or an opportunity? Tell me a little
+            about it. Let's explore how we can turn it into something
+            meaningful.
           </p>
         </div>
 
-        {/* Contact Layout */}
         <div className="contact-layout">
-
-          {/* Contact Information */}
+          {/* Contact details */}
           <div className="contact-info">
+            <div className="contact-info-heading">
+              <span className="contact-eyebrow">CONTACT DETAILS</span>
+              <h3>I'm all ears.</h3>
+              <p>
+                Share your idea or reach out through any of these channels.
+              </p>
+            </div>
 
-            <div className="contact-item">
+            <a className="contact-item" href={`mailto:${EMAIL}`}>
               <div className="contact-icon">
                 <Mail size={19} />
               </div>
-
-              <div>
+              <div className="contact-item-content">
                 <span>Email</span>
-                <a href="mailto:hackxyl58@gmail.com">
-                  hackxyl58@gmail.com
-                </a>
+                <p>{EMAIL}</p>
               </div>
-            </div>
+              <ArrowUpRight className="contact-item-arrow" size={18} />
+            </a>
 
-            <div className="contact-item">
+            <a className="contact-item" href={`tel:${PHONE}`}>
               <div className="contact-icon">
-                <MapPin size={19} />
+                <Phone size={19} />
               </div>
-
-              <div>
+              <div className="contact-item-content">
                 <span>Phone</span>
-                <a href="tel:+254114797246">+254 114 797 246</a>
+                <p>+254 114 797 246</p>
               </div>
-            </div>
+              <ArrowUpRight className="contact-item-arrow" size={18} />
+            </a>
 
-            <div className="contact-item">
+            <div className="contact-item contact-item-static">
               <div className="contact-icon">
                 <MapPin size={19} />
               </div>
-
-              <div>
+              <div className="contact-item-content">
                 <span>Location</span>
                 <p>Voi, Kenya</p>
               </div>
             </div>
 
-            <div className="contact-item">
+            <a
+              className="contact-item"
+              href="https://www.linkedin.com/in/hackxyl-230b922aa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="contact-icon">
-                
+                <BriefcaseBusiness size={19} />
               </div>
-
-              <div>
+              <div className="contact-item-content">
                 <span>LinkedIn</span>
-                <a
-                  href="https://www.linkedin.com/in/hackxyl-230b922aa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  linkedin.com/in/hackxyl-230b922aa
-                </a>
+                <p>Let's connect professionally</p>
               </div>
-            </div>
+              <ArrowUpRight className="contact-item-arrow" size={18} />
+            </a>
 
+            <div className="contact-direct-note">
+              <span className="contact-direct-dot" />
+              <p>Open to interesting projects and opportunities.</p>
+            </div>
           </div>
 
-          {/* Contact CTA Card */}
-          <div className="contact-card">
-
+          {/* Contact form */}
+          <div className="contact-card contact-form-card">
             <div className="contact-card-glow" />
 
             <div className="contact-card-content">
+              <div className="contact-form-heading">
+                <div className="contact-card-icon">
+                  <MessageCircle size={21} />
+                </div>
 
-              <span className="contact-card-label">
-                HAVE A PROJECT IN MIND?
-              </span>
+                <span className="contact-card-label">
+                  START A CONVERSATION
+                </span>
 
-              <h3>
-                Let's turn your
-                <br />
-                idea into reality.
-              </h3>
+                <h3>Tell me about it.</h3>
 
-              <p>
-                Whether it's a web application, intelligent
-                system, business platform, or something entirely
-                new, let's discuss what we can build together.
-              </p>
+                <p>
+                  A few details are all I need to get the conversation started.
+                </p>
+              </div>
 
-              <a
-                href="mailto:hackxyl58@gmail.com?subject=Project%20Inquiry&body=Hello%20Meshack,%0A%0AI'd%20like%20to%20discuss%20a%20project%20with%20you."
-             className="contact-button"
-              >
-              Start a conversation
-             <ArrowUpRight size={17} />
-            </a>
+              {status === "success" ? (
+                <div className="contact-form-success" role="status">
+                  <CheckCircle2 size={34} />
+                  <h4>Message submitted!</h4>
+                  <p>
+                    Thanks for reaching out. Your message was accepted by
+                    the form service.
+                  </p>
+                  <button
+                    type="button"
+                    className="contact-button"
+                    onClick={() => setStatus("idle")}
+                  >
+                    Send another message
+                    <ArrowUpRight size={17} />
+                  </button>
+                </div>
+              ) : (
+                <form
+                  className="contact-form"
+                  onSubmit={handleSubmit}
+                >
+                  <div className="contact-form-row">
+                    <div className="contact-field">
+                      <label htmlFor="contact-name">Your name</label>
+                      <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        placeholder="Meshack Muindi"
+                        autoComplete="name"
+                        maxLength={100}
+                        required
+                      />
+                    </div>
 
+                    <div className="contact-field">
+                      <label htmlFor="contact-email">Email address</label>
+                      <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        placeholder="example@gmail.com"
+                        autoComplete="email"
+                        maxLength={254}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="contact-field">
+                    <label htmlFor="contact-project">
+                      What can I help you with?
+                    </label>
+                    <select
+                      id="contact-project"
+                      name="projectType"
+                      defaultValue=""
+                      required
+                    >
+                      <option value="" disabled>
+                        Select a project type
+                      </option>
+                      <option value="Website development">
+                        Website development
+                      </option>
+                      <option value="Web application">
+                        Web application
+                      </option>
+                      <option value="UI/UX and redesign">
+                        UI/UX and redesign
+                      </option>
+                      <option value="Technical support">
+                        Technical support
+                      </option>
+                      <option value="Freelance collaboration">
+                        Freelance collaboration
+                      </option>
+                      <option value="Job opportunity">
+                        Job opportunity
+                      </option>
+                      <option value="Other">Something else</option>
+                    </select>
+                  </div>
+
+                  <div className="contact-field">
+                    <label htmlFor="contact-message">Your message</label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      placeholder="Tell me a little about your idea, goals, or timeline..."
+                      rows={5}
+                      minLength={10}
+                      maxLength={5000}
+                      required
+                    />
+                    <span className="contact-field-hint">
+                      A short description is a great place to start.
+                    </span>
+                  </div>
+
+                  {/* Honeypot field for basic bot filtering */}
+                  <div className="contact-honeypot" aria-hidden="true">
+                    <label htmlFor="contact-website">
+                      Leave this field empty
+                    </label>
+                    <input
+                      id="contact-website"
+                      type="text"
+                      name="_honey"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
+                  {status === "error" && (
+                    <p className="contact-form-error" role="alert">
+                      {errorMessage}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="contact-button contact-submit"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? (
+                      <>
+                        <LoaderCircle className="contact-spinner" size={18} />
+                        Sending message...
+                      </>
+                    ) : (
+                      <>
+                        Send my message
+                        <Send size={17} />
+                      </>
+                    )}
+                  </button>
+
+                  <p className="contact-form-privacy">
+                    Your details are used to respond to your enquiry.
+                  </p>
+                </form>
+              )}
             </div>
-
           </div>
-
         </div>
 
-        {/* Social Links */}
         <div className="contact-bottom">
-
-          <div>
-            <span>CONNECT</span>
-            <p>Find me online.</p>
+          <div className="contact-bottom-heading">
+            <span className="contact-eyebrow">ELSEWHERE ONLINE</span>
+            <p>Find me around the web.</p>
           </div>
 
           <div className="contact-socials">
-
             <a
-              href="whatsapp://send?phone=+254114797246"
+              href={`https://wa.me/${PHONE.replace("+", "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp"
             >
+              <MessageCircle size={17} />
               <span>WhatsApp</span>
+              <ExternalLink size={13} />
             </a>
 
             <a
               href="https://github.com/Hackxyl"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
             >
-              
+              <GitBranch size={17} />
               <span>GitHub</span>
+              <ExternalLink size={13} />
             </a>
 
             <a
               href="https://www.linkedin.com/in/hackxyl-230b922aa"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
             >
-             
+              <BriefcaseBusiness size={17} />
               <span>LinkedIn</span>
+              <ExternalLink size={13} />
             </a>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
