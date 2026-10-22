@@ -393,3 +393,153 @@
     height: 38px;
   }
 }
+
+
+/* TECHNOLOGY MARQUEE */
+
+.tech-strip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  margin-top: 64px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border, #242731);
+  border-bottom: 1px solid var(--border, #242731);
+  min-width: 0;
+}
+
+.tech-label {
+  color: var(--text-muted, #98a2b3);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
+.tech-marquee {
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+}
+
+.tech-track {
+  display: flex;
+  width: max-content;
+  animation: tech-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.tech-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  color: var(--text-secondary, #98a2b3);
+  font-size: 0.88rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.tech-item::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #8b5cf6;
+  opacity: 0.75;
+}
+
+.tech-item:hover {
+  color: #a78bfa;
+}
+
+.tech-marquee:hover .tech-track {
+  animation-play-state: paused;
+}
+
+@keyframes tech-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* TABLETS AND MOBILE */
+
+@media (max-width: 640px) {
+  .tech-strip {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 44px;
+    padding: 20px 0;
+  }
+
+  .tech-label {
+    font-size: 0.66rem;
+  }
+
+  .tech-track {
+    animation-duration: 22s;
+  }
+
+  .tech-group {
+    gap: 22px;
+    padding-right: 22px;
+  }
+
+  .tech-item {
+    gap: 22px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-track {
+    animation: none;
+    transform: translateX(0);
+  }
+
+  .tech-group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .tech-marquee {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .tech-group {
+    flex-wrap: wrap;
+  }
+}

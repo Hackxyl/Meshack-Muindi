@@ -34,6 +34,17 @@ const capabilities = [
   },
 ];
 
+const technologies = [
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "Python",
+  "Django",
+  "Node.js",
+  "PostgreSQL",
+  "Git",
+];
+
 function About() {
   return (
     <section className="about section" id="about">
@@ -116,22 +127,32 @@ function About() {
 
         </div>
 
-        <div className="tech-strip">
+        
+<div className="tech-strip">
+  <span className="tech-label">TECHNOLOGIES</span>
 
-          <span>TECHNOLOGIES</span>
-
-          <div className="tech-list">
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>JavaScript</span>
-            <span>Python</span>
-            <span>Django</span>
-            <span>Node.js</span>
-            <span>PostgreSQL</span>
-            <span>Git</span>
-          </div>
-
+  <div className="tech-marquee">
+    <div className="tech-track">
+      {[0, 1].map((group) => (
+        <div
+          className="tech-group"
+          key={group}
+          aria-hidden={group === 1 ? "true" : undefined}
+        >
+          {technologies.map((technology) => (
+            <span
+              className="tech-item"
+              key={technology}
+            >
+              {technology}
+            </span>
+          ))}
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       </div>
     </section>
